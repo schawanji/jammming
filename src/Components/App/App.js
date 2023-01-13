@@ -18,6 +18,7 @@ export default class App extends React.Component {
         }
 
         this.addTrack = this.addTrack.bind(this)
+        this.removeTrack = this.removeTrack.bind(this)
 
     }
 
@@ -26,6 +27,10 @@ export default class App extends React.Component {
         if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
             return
         }
+    }
+
+    removeTrack(track) {
+        this.state.playlistTracks.filter(savedTrack => savedTrack.id != track.id)
     }
     render() {
         return <div>
@@ -36,7 +41,7 @@ export default class App extends React.Component {
 
                     <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
 
-                    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
+                    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack}/>
                 </div>
             </div>
         </div>
