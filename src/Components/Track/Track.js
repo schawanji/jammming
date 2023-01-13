@@ -13,9 +13,9 @@ export default class Track extends React.Component {
 
     let isRemoval = false;
     if (isRemoval) {
-      return '-'
+      return  <button className="Track-action" onClick={this.addTrack}> - </button>
     } else {
-      return '+'
+      return   <button className="Track-action" onClick={this.addTrack}> + </button>
     }
 
   }
@@ -34,7 +34,7 @@ export default class Track extends React.Component {
 
 
 
-      <button className="Track-action" onClick={this.addTrack}> {this.renderAction()} </button>
+      {this.renderAction()} 
     </div>
   }
 }
