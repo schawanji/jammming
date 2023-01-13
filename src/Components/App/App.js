@@ -10,16 +10,13 @@ export default class App extends React.Component {
             searchResults: [{ trackName: 'Tichichema', artist: 'Amara Brown', albumName: 'Tichichema', id: 1 },
             { trackName: 'Do my own Thing', artist: 'Tamy Moyo', albumName: 'Bvudzijena', id: 3 },
             { trackName: 'Vaudze', artist: 'Janet Manyowa', albumName: 'Vaudze', id: 2 },
-            ], 
-            playlistName: '', 
+            ],
+            playlistName: 'Sharon',
             playlistTracks: [{ trackName: 'Tichichema', artist: 'Amara Brown', albumName: 'Tichichema', id: 1 },
             { trackName: 'Do my own Thing', artist: 'Tamy Moyo', albumName: 'Bvudzijena', id: 3 },
             { trackName: 'Vaudze', artist: 'Janet Manyowa', albumName: 'Vaudze', id: 2 }]
         }
-        this.state.playlistName = {
-
-        }
-        this.state.playlistTracks = {}
+        
     }
     render() {
         return <div>
@@ -30,7 +27,7 @@ export default class App extends React.Component {
 
                     <SearchResults searchResults={this.state.searchResults} />
 
-                    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
+                    <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
                 </div>
             </div>
         </div>
