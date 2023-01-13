@@ -16,7 +16,16 @@ export default class App extends React.Component {
             { trackName: 'Do my own Thing', artist: 'Tamy Moyo', albumName: 'Bvudzijena', id: 3 },
             { trackName: 'Vaudze', artist: 'Janet Manyowa', albumName: 'Vaudze', id: 2 }]
         }
-        
+
+        this.addTrack = this.addTrack.bind(this)
+
+    }
+
+    addTrack(track) {
+
+        if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+            return
+        }
     }
     render() {
         return <div>
@@ -25,7 +34,7 @@ export default class App extends React.Component {
                 <SearchBar />
                 <div className="App-playlist">
 
-                    <SearchResults searchResults={this.state.searchResults} />
+                    <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
 
                     <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
                 </div>

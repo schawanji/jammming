@@ -3,6 +3,12 @@ import './Track.css'
 
 
 export default class Track extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.addTrack = this.addTrack.bind(this)
+  }
+
   renderAction() {
 
     let isRemoval = false;
@@ -12,6 +18,10 @@ export default class Track extends React.Component {
       return '+'
     }
 
+  }
+
+  addTrack() {
+    this.props.onAdd(this.props.track)
   }
 
   render() {
@@ -24,7 +34,7 @@ export default class Track extends React.Component {
 
 
 
-      <button className="Track-action"> {this.renderAction()} </button>
+      <button className="Track-action" onClick={this.addTrack}> {this.renderAction()} </button>
     </div>
   }
 }
