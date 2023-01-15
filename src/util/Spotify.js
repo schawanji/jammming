@@ -24,7 +24,18 @@ const getAccessToken = () => {
 
 const search = (term) => {
     const accessToken = getAccessToken();
-   return fetch(``)
+    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, { headers: { Authorization: `Bearew ${accessToken}` } }).then(response => { return response.json }).then(responseJSON => {
+        if (!responseJSON) {
+            return [];
+        }
+        return responseJSON.tracks.items.map(track => ({
+            id: track.id,
+            name: track.name,
+            artist: track.artists[0].name,
+            album: track.album.name,
+            uri: track.uri
+        }))
+    })
 }
 
 export const Spotify = {
